@@ -1,0 +1,273 @@
+{
+  "sourceLanguage" : "ru",
+  "strings" : {
+    "" : {
+
+    },
+    "carrierCard.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Информация о перевозчике"
+          }
+        }
+      }
+    },
+    "carriers.empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вариантов нет"
+          }
+        }
+      }
+    },
+    "carriers.filterButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уточнить время"
+          }
+        }
+      }
+    },
+    "carriers.transfer %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "С пересадкой в %@"
+          }
+        }
+      }
+    },
+    "citySelection.empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Город не найден"
+          }
+        }
+      }
+    },
+    "citySelection.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выбор города"
+          }
+        }
+      }
+    },
+    "departureTime.day" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "День 12:00 - 18:00"
+          }
+        }
+      }
+    },
+    "departureTime.evening" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вечер 18:00 - 00:00"
+          }
+        }
+      }
+    },
+    "departureTime.morning" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утро 06:00 - 12:00"
+          }
+        }
+      }
+    },
+    "departureTime.night" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ночь 00:00 - 06:00"
+          }
+        }
+      }
+    },
+    "error.noInternet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет интернета"
+          }
+        }
+      }
+    },
+    "error.server" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка сервера"
+          }
+        }
+      }
+    },
+    "filters.apply" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Применить"
+          }
+        }
+      }
+    },
+    "filters.departureTime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Время отправления"
+          }
+        }
+      }
+    },
+    "filters.no" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет"
+          }
+        }
+      }
+    },
+    "filters.transfers" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показывать варианты с пересадками"
+          }
+        }
+      }
+    },
+    "filters.yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Да"
+          }
+        }
+      }
+    },
+    "main.from" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Откуда"
+          }
+        }
+      }
+    },
+    "main.search" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найти"
+          }
+        }
+      }
+    },
+    "main.to" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Куда"
+          }
+        }
+      }
+    },
+    "search.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите запрос"
+          }
+        }
+      }
+    },
+    "settings.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
+          }
+        }
+      }
+    },
+    "stationSelection.empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Станция не найдена"
+          }
+        }
+      }
+    },
+    "stationSelection.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выбор станции"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
