@@ -39,6 +39,7 @@ enum MockData {
         id: "112",
         title: "РЖД",
         logo: "RZDLogo",
+        largeLogo: "RZDLogoLarge",
         email: "info@rzd.ru",
         phone: "+7 (800) 775-00-00"
     )

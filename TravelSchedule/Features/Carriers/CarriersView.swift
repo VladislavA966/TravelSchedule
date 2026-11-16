@@ -29,7 +29,7 @@ struct CarriersView: View {
                     LazyVStack(spacing: .s8) {
                         ForEach(trips) { trip in
                             Button {
-                                router.push(.carrierCard(trip.carrier))
+                                router.push(.carrierDetails(trip.carrier))
                             } label: {
                                 TripCardView(trip: trip)
                             }
@@ -37,7 +37,7 @@ struct CarriersView: View {
                         }
                     }
                     .padding(.horizontal, .s16)
-                    .padding(.bottom, Layout.listBottomInset)
+                    .padding(.bottom, LayoutConstants.listBottomInset)
                 }
             }
         }
@@ -59,7 +59,7 @@ struct CarriersView: View {
     }
 }
 
-private enum Layout {
+private enum LayoutConstants {
     static let listBottomInset: CGFloat = 100
 }
 

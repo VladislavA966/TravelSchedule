@@ -22,7 +22,7 @@ struct MainView: View {
                 PrimaryButton(title: .mainSearch) {
                     router.push(.carriers(query))
                 }
-                .frame(width: Layout.searchButtonWidth)
+                .frame(width: LayoutConstants.searchButtonWidth)
                 .transition(.opacity)
             }
 
@@ -82,7 +82,7 @@ private struct DirectionPicker: View {
     }
 }
 
-private enum Layout {
+private enum LayoutConstants {
     static let searchButtonWidth: CGFloat = 150
 }
 

@@ -1,5 +1,4 @@
 import SwiftUI
-import UIKit
 
 struct TripCardView: View {
     let trip: Trip
@@ -48,7 +47,7 @@ struct TripCardView: View {
     private var divider: some View {
         Rectangle()
             .fill(.ypGray)
-            .frame(height: Layout.dividerHeight)
+            .frame(height: LayoutConstants.dividerHeight)
     }
 }
 
@@ -56,25 +55,15 @@ struct CarrierLogoView: View {
     let carrier: Carrier
 
     var body: some View {
-        Group {
-            if UIImage(named: carrier.logo) != nil {
-                Image(carrier.logo)
-                    .resizable()
-                    .scaledToFit()
-            } else {
-                Text(carrier.title.prefix(1))
-                    .font(.ypBold17)
-                    .foregroundStyle(.ypBlackUniversal)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(.ypWhiteUniversal)
-            }
-        }
-        .frame(width: Layout.logoSize, height: Layout.logoSize)
-        .clipShape(RoundedRectangle(cornerRadius: .s12))
+        Image(carrier.logo)
+            .resizable()
+            .scaledToFit()
+            .frame(width: LayoutConstants.logoSize, height: LayoutConstants.logoSize)
+            .clipShape(RoundedRectangle(cornerRadius: .s12))
     }
 }
 
-private enum Layout {
+private enum LayoutConstants {
     static let dividerHeight: CGFloat = 1
     static let logoSize: CGFloat = 38
 }

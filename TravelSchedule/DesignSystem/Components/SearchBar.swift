@@ -29,11 +29,11 @@ struct SearchBar: View {
         }
         .padding(.horizontal, .s8)
         .frame(height: .s36)
-        .background(.ypLightGray.opacity(Layout.backgroundOpacity), in: RoundedRectangle(cornerRadius: .s10))
+        .background(.ypLightGray.opacity(LayoutConstants.backgroundOpacity), in: RoundedRectangle(cornerRadius: .s10))
     }
 }
 
-private enum Layout {
+private enum LayoutConstants {
     static let backgroundOpacity = 0.5
 }
 
