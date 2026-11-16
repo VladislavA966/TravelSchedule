@@ -8,7 +8,7 @@ struct MainTabView: View {
                     Image(systemName: "arrow.up.message.fill")
                 }
 
-            SettingsView()
+            SettingsFlowView()
                 .tabItem {
                     Image(systemName: "gearshape.fill")
                 }

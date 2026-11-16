@@ -1,11 +1,19 @@
 import SwiftUI
 
 struct ChevronRow: View {
-    let title: String
+    private let title: Text
+
+    init(title: String) {
+        self.title = Text(verbatim: title)
+    }
+
+    init(title: LocalizedStringResource) {
+        self.title = Text(title)
+    }
 
     var body: some View {
         HStack {
-            Text(title)
+            title
                 .font(.ypRegular17)
                 .foregroundStyle(.ypBlack)
             Spacer()
@@ -21,7 +29,7 @@ struct ChevronRow: View {
 #Preview {
     VStack(spacing: 0) {
         ChevronRow(title: "Москва")
-        ChevronRow(title: "Санкт-Петербург")
+        ChevronRow(title: .settingsUserAgreement)
     }
     .padding(.horizontal)
 }
