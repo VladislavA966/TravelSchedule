@@ -19,3 +19,6 @@ playground.xcworkspace
 .build/
 .swiftpm/
 Packages/
+
+# Secrets
+Config/Secrets.xcconfig
