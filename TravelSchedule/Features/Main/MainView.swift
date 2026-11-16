@@ -2,9 +2,42 @@ import SwiftUI
 
 struct MainView: View {
     @State private var viewModel = MainViewModel()
+    @State private var storiesViewModel = StoriesViewModel()
+    @State private var selectedStory: Story?
     @Environment(Router<ScheduleRoute>.self) private var router
 
     var body: some View {
+        VStack(spacing: .s20) {
+            StoriesCollectionView(
+                stories: storiesViewModel.stories,
+                isViewed: storiesViewModel.isViewed,
+                onSelect: { selectedStory = $0 }
+            )
+
+            directionSection
+
+            Spacer()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.ypWhite)
+        .animation(.default, value: viewModel.canSearch)
+        .fullScreenCover(item: $viewModel.activeField) { field in
+            CitySelectionFlowView { point in
+                viewModel.select(point, for: field)
+            }
+        }
+        .fullScreenCover(item: $selectedStory) { story in
+            StoriesPlayerView(
+                viewModel: StoriesPlayerViewModel(
+                    stories: storiesViewModel.stories,
+                    initialStory: story,
+                    onStoryShown: storiesViewModel.markViewed
+                )
+            )
+        }
+    }
+
+    private var directionSection: some View {
         VStack(spacing: .s16) {
             DirectionPicker(
                 from: viewModel.from?.title,
@@ -25,18 +58,8 @@ struct MainView: View {
                 .frame(width: LayoutConstants.searchButtonWidth)
                 .transition(.opacity)
             }
-
-            Spacer()
         }
         .padding(.horizontal, .s16)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.ypWhite)
-        .animation(.default, value: viewModel.canSearch)
-        .fullScreenCover(item: $viewModel.activeField) { field in
-            CitySelectionFlowView { point in
-                viewModel.select(point, for: field)
-            }
-        }
     }
 }
 

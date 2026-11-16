@@ -66,4 +66,17 @@ enum MockData {
         Trip(id: "5", carrier: rzd, date: "17 января", departureTime: "07:10", arrivalTime: "15:40", duration: "8 часов", transferCity: nil),
         Trip(id: "6", carrier: fgk, date: "18 января", departureTime: "16:45", arrivalTime: "05:20", duration: "13 часов", transferCity: "Твери"),
     ]
+
+    private static let storyTitle = "Text Text Text Text Text Text Text Text Text Text"
+    private static let storyText = "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text"
+
+    static let stories: [Story] = (1...9).map { index in
+        Story(
+            id: index,
+            preview: "StoryPreview\(index)",
+            pages: [index * 2 - 1, index * 2].map { page in
+                StoryPage(id: page, image: "StoryBig\(page)", title: storyTitle, text: storyText)
+            }
+        )
+    }
 }
