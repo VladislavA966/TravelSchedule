@@ -8,8 +8,8 @@ struct ErrorView: View {
             Image(error.imageName)
                 .resizable()
                 .scaledToFill()
-                .frame(width: Layout.illustrationSize, height: Layout.illustrationSize)
-                .clipShape(RoundedRectangle(cornerRadius: Layout.illustrationRadius))
+                .frame(width: LayoutConstants.illustrationSize, height: LayoutConstants.illustrationSize)
+                .clipShape(RoundedRectangle(cornerRadius: LayoutConstants.illustrationRadius))
             Text(error.title)
                 .font(.ypBold24)
                 .foregroundStyle(.ypBlack)
@@ -42,7 +42,7 @@ private struct ErrorStateModifier: ViewModifier {
     }
 }
 
-private enum Layout {
+private enum LayoutConstants {
     static let illustrationSize: CGFloat = 223
     static let illustrationRadius: CGFloat = 70
 }

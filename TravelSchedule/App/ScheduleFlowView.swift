@@ -3,7 +3,7 @@ import SwiftUI
 enum ScheduleRoute: Hashable {
     case carriers(TripQuery)
     case filters
-    case carrierCard(Carrier)
+    case carrierDetails(Carrier)
 }
 
 struct ScheduleFlowView: View {
@@ -34,8 +34,8 @@ struct ScheduleFlowView: View {
             CarriersView(query: query, filter: $filter)
         case .filters:
             FiltersView(filter: $filter)
-        case .carrierCard(let carrier):
-            CarrierCardView(carrier: carrier)
+        case .carrierDetails(let carrier):
+            CarrierDetailsView(carrier: carrier)
         }
     }
 }
