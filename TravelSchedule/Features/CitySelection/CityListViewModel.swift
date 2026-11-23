@@ -10,7 +10,7 @@ final class CityListViewModel {
 
     private let repository: CitiesRepositoryProtocol
 
-    init(repository: CitiesRepositoryProtocol = MockCitiesRepository()) {
+    init(repository: CitiesRepositoryProtocol = AppDependencies.citiesRepository) {
         self.repository = repository
     }
 
