@@ -1,6 +1,6 @@
 import Foundation
 
-nonisolated struct Trip: Identifiable, Hashable, Sendable {
+struct Trip: Identifiable, Hashable, Sendable {
     let id: String
     let carrier: Carrier
     let date: String

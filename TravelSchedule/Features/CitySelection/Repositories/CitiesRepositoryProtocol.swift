@@ -1,5 +1,5 @@
 import Foundation
 
-protocol CitiesRepositoryProtocol {
+protocol CitiesRepositoryProtocol: Sendable {
     func fetchCities() async throws -> [City]
 }

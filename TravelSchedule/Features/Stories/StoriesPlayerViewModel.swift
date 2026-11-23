@@ -1,6 +1,7 @@
 import Combine
 import Foundation
 
+@MainActor
 @Observable
 final class StoriesPlayerViewModel {
     let stories: [Story]

@@ -1,5 +1,5 @@
 import Foundation
 
-protocol TripsRepositoryProtocol {
+protocol TripsRepositoryProtocol: Sendable {
     func fetchTrips(for query: TripQuery) async throws -> [Trip]
 }

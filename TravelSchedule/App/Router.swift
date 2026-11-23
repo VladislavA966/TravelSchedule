@@ -1,5 +1,6 @@
 import SwiftUI
 
+@MainActor
 @Observable
 final class Router<Route: Hashable> {
     var path: [Route] = []

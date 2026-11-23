@@ -1,6 +1,6 @@
 import Foundation
 
-nonisolated struct Station: Identifiable, Hashable, Sendable {
+struct Station: Identifiable, Hashable, Sendable {
     let id: String
     let title: String
 }

@@ -1,6 +1,7 @@
 import Network
 import Observation
 
+@MainActor
 @Observable
 final class NetworkMonitor {
     private(set) var isConnected = true

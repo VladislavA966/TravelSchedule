@@ -1,6 +1,6 @@
 import Foundation
 
-nonisolated struct Carrier: Identifiable, Hashable, Sendable {
+struct Carrier: Identifiable, Hashable, Sendable {
     let id: String
     let title: String
     let logo: String
