@@ -1,6 +1,6 @@
 import Foundation
 
-struct RoutePoint: Hashable {
+nonisolated struct RoutePoint: Hashable, Sendable {
     let city: City
     let station: Station
 

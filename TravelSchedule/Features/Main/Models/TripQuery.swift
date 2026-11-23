@@ -1,6 +1,6 @@
 import Foundation
 
-struct TripQuery: Hashable {
+nonisolated struct TripQuery: Hashable, Sendable {
     let from: RoutePoint
     let to: RoutePoint
 }
