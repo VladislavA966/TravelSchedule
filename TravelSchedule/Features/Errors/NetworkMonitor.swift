@@ -10,13 +10,13 @@ final class NetworkMonitor {
     private let monitor = NWPathMonitor()
 
     init() {
-        monitor.pathUpdateHandler = { @Sendable [weak self] path in
+        monitor.pathUpdateHandler = { [weak self] path in
             let isConnected = path.status == .satisfied
-            Task { @MainActor in
+            MainActor.assumeIsolated {
                 self?.isConnected = isConnected
             }
         }
-        monitor.start(queue: DispatchQueue(label: "NetworkMonitor"))
+        monitor.start(queue: .main)
     }
 
     deinit {

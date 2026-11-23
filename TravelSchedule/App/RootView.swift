@@ -1,24 +1,20 @@
 import SwiftUI
 
 struct RootView: View {
-    private static let splashDuration: Duration = .seconds(2)
-
-    @State private var isSplashShown = true
+    @StateObject private var viewModel = RootViewModel()
 
     var body: some View {
         ZStack {
-            if isSplashShown {
+            if viewModel.isSplashShown {
                 SplashView()
                     .transition(.opacity)
             } else {
                 MainTabView()
             }
         }
+        .animation(.default, value: viewModel.isSplashShown)
         .task {
-            try? await Task.sleep(for: Self.splashDuration)
-            withAnimation {
-                isSplashShown = false
-            }
+            await viewModel.prepare()
         }
     }
 }
