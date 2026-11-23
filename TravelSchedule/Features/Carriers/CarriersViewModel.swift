@@ -10,7 +10,7 @@ final class CarriersViewModel {
 
     private let repository: TripsRepositoryProtocol
 
-    init(query: TripQuery, repository: TripsRepositoryProtocol = MockTripsRepository()) {
+    init(query: TripQuery, repository: TripsRepositoryProtocol = AppDependencies.tripsRepository) {
         self.query = query
         self.repository = repository
     }

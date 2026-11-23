@@ -55,10 +55,14 @@ struct CarrierLogoView: View {
     let carrier: Carrier
 
     var body: some View {
-        Image(carrier.logo)
-            .resizable()
-            .scaledToFit()
-            .frame(width: LayoutConstants.logoSize, height: LayoutConstants.logoSize)
+        AsyncImage(url: carrier.logoURL) { image in
+            image
+                .resizable()
+                .scaledToFit()
+        } placeholder: {
+            Color.ypWhiteUniversal
+        }
+        .frame(width: LayoutConstants.logoSize, height: LayoutConstants.logoSize)
             .clipShape(RoundedRectangle(cornerRadius: .s12))
     }
 }

@@ -14,16 +14,20 @@ struct CarrierDetailsView: View {
                     .foregroundStyle(.ypBlack)
 
                 VStack(alignment: .leading, spacing: 0) {
-                    ContactRow(
-                        title: .carrierDetailsEmail,
-                        value: carrier.email,
-                        url: URL(string: "mailto:\(carrier.email)")
-                    )
-                    ContactRow(
-                        title: .carrierDetailsPhone,
-                        value: carrier.phone,
-                        url: URL(string: "tel:\(carrier.phone.filter { $0.isNumber || $0 == "+" })")
-                    )
+                    if !carrier.email.isEmpty {
+                        ContactRow(
+                            title: .carrierDetailsEmail,
+                            value: carrier.email,
+                            url: URL(string: "mailto:\(carrier.email)")
+                        )
+                    }
+                    if !carrier.phone.isEmpty {
+                        ContactRow(
+                            title: .carrierDetailsPhone,
+                            value: carrier.phone,
+                            url: URL(string: "tel:\(carrier.phone.filter { $0.isNumber || $0 == "+" })")
+                        )
+                    }
                 }
             }
             .padding(.horizontal, .s16)
@@ -35,16 +39,12 @@ struct CarrierDetailsView: View {
     }
 
     private var logo: some View {
-        Group {
-            if let largeLogo = carrier.largeLogo {
-                Image(largeLogo)
-                    .resizable()
-                    .scaledToFill()
-            } else {
-                Image(carrier.logo)
-                    .resizable()
-                    .scaledToFit()
-            }
+        AsyncImage(url: carrier.logoURL) { image in
+            image
+                .resizable()
+                .scaledToFit()
+        } placeholder: {
+            ProgressView()
         }
         .frame(maxWidth: .infinity)
         .frame(height: LayoutConstants.logoHeight)
