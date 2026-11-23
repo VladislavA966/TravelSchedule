@@ -1,11 +1,11 @@
+import Combine
 import Foundation
 
 @MainActor
-@Observable
-final class MainViewModel {
-    var from: RoutePoint?
-    var to: RoutePoint?
-    var activeField: DirectionField?
+final class MainViewModel: ObservableObject {
+    @Published var from: RoutePoint?
+    @Published var to: RoutePoint?
+    @Published var activeField: DirectionField?
 
     var canSearch: Bool {
         from != nil && to != nil

@@ -1,10 +1,10 @@
+import Combine
 import Foundation
 
 @MainActor
-@Observable
-final class StoriesViewModel {
+final class StoriesViewModel: ObservableObject {
     let stories: [Story]
-    private(set) var viewedIDs: Set<Story.ID> = []
+    @Published private(set) var viewedIDs: Set<Story.ID> = []
 
     init(stories: [Story] = MockData.stories) {
         self.stories = stories

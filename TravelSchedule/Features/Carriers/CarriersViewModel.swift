@@ -1,12 +1,12 @@
+import Combine
 import Foundation
 
 @MainActor
-@Observable
-final class CarriersViewModel {
+final class CarriersViewModel: ObservableObject {
     let query: TripQuery
-    private(set) var trips: [Trip] = []
-    private(set) var isLoading = false
-    private(set) var error: AppError?
+    @Published private(set) var trips: [Trip] = []
+    @Published private(set) var isLoading = false
+    @Published private(set) var error: AppError?
 
     private let repository: TripsRepositoryProtocol
 

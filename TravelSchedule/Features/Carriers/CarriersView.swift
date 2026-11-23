@@ -2,12 +2,12 @@ import SwiftUI
 
 struct CarriersView: View {
     @Binding var filter: TripFilter
-    @State private var viewModel: CarriersViewModel
+    @StateObject private var viewModel: CarriersViewModel
     @Environment(Router<ScheduleRoute>.self) private var router
 
     init(query: TripQuery, filter: Binding<TripFilter>) {
         _filter = filter
-        _viewModel = State(initialValue: CarriersViewModel(query: query))
+        _viewModel = StateObject(wrappedValue: CarriersViewModel(query: query))
     }
 
     var body: some View {

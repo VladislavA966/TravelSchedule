@@ -1,25 +1,20 @@
 import SwiftUI
 
 struct UserAgreementView: View {
-    @State private var isLoading = true
-    @State private var error: AppError?
+    @StateObject private var viewModel = UserAgreementViewModel()
     @Environment(Router<SettingsRoute>.self) private var router
 
     var body: some View {
-        WebView(url: Constants.agreementURL, isLoading: $isLoading, error: $error)
+        WebView(url: viewModel.url, isLoading: $viewModel.isLoading, error: $viewModel.error)
             .overlay {
-                if isLoading {
+                if viewModel.isLoading {
                     ProgressView()
                 }
             }
             .background(.ypWhite)
             .navigationBar(title: .settingsUserAgreement, onBack: router.pop)
-            .errorState(error)
+            .errorState(viewModel.error)
     }
-}
-
-private enum Constants {
-    static let agreementURL = URL(string: "https://yandex.ru/legal/practicum_offer")!
 }
 
 #Preview {

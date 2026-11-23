@@ -1,31 +1,35 @@
 import SwiftUI
 
 struct CarrierDetailsView: View {
-    let carrier: Carrier
+    @StateObject private var viewModel: CarrierDetailsViewModel
     @Environment(Router<ScheduleRoute>.self) private var router
+
+    init(carrier: Carrier) {
+        _viewModel = StateObject(wrappedValue: CarrierDetailsViewModel(carrier: carrier))
+    }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: .s16) {
                 logo
 
-                Text(carrier.title)
+                Text(viewModel.carrier.title)
                     .font(.ypBold24)
                     .foregroundStyle(.ypBlack)
 
                 VStack(alignment: .leading, spacing: 0) {
-                    if !carrier.email.isEmpty {
+                    if let emailURL = viewModel.emailURL {
                         ContactRow(
                             title: .carrierDetailsEmail,
-                            value: carrier.email,
-                            url: URL(string: "mailto:\(carrier.email)")
+                            value: viewModel.carrier.email,
+                            url: emailURL
                         )
                     }
-                    if !carrier.phone.isEmpty {
+                    if let phoneURL = viewModel.phoneURL {
                         ContactRow(
                             title: .carrierDetailsPhone,
-                            value: carrier.phone,
-                            url: URL(string: "tel:\(carrier.phone.filter { $0.isNumber || $0 == "+" })")
+                            value: viewModel.carrier.phone,
+                            url: phoneURL
                         )
                     }
                 }
@@ -39,7 +43,7 @@ struct CarrierDetailsView: View {
     }
 
     private var logo: some View {
-        AsyncImage(url: carrier.logoURL) { image in
+        AsyncImage(url: viewModel.carrier.logoURL) { image in
             image
                 .resizable()
                 .scaledToFit()

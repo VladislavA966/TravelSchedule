@@ -2,12 +2,12 @@ import SwiftUI
 
 struct StationListView: View {
     let onSelect: (Station) -> Void
-    @State private var viewModel: StationListViewModel
+    @StateObject private var viewModel: StationListViewModel
     @Environment(\.dismiss) private var dismiss
 
     init(city: City, onSelect: @escaping (Station) -> Void) {
         self.onSelect = onSelect
-        _viewModel = State(initialValue: StationListViewModel(city: city))
+        _viewModel = StateObject(wrappedValue: StationListViewModel(city: city))
     }
 
     var body: some View {

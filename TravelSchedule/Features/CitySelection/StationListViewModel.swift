@@ -1,9 +1,9 @@
+import Combine
 import Foundation
 
 @MainActor
-@Observable
-final class StationListViewModel {
-    var searchText = ""
+final class StationListViewModel: ObservableObject {
+    @Published var searchText = ""
     private let city: City
 
     init(city: City) {
