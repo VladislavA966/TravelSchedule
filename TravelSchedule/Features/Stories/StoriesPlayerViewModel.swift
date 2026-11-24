@@ -1,10 +1,10 @@
 import Combine
 import Foundation
 
-@Observable
-final class StoriesPlayerViewModel {
+@MainActor
+final class StoriesPlayerViewModel: ObservableObject {
     let stories: [Story]
-    var currentStoryIndex: Int {
+    @Published var currentStoryIndex: Int {
         didSet {
             guard oldValue != currentStoryIndex else { return }
             currentPageIndex = 0
@@ -12,12 +12,12 @@ final class StoriesPlayerViewModel {
             onStoryShown(currentStory)
         }
     }
-    private(set) var currentPageIndex = 0
-    private(set) var progress: Double = 0
-    private(set) var isFinished = false
+    @Published private(set) var currentPageIndex = 0
+    @Published private(set) var progress: Double = 0
+    @Published private(set) var isFinished = false
 
-    @ObservationIgnored private let onStoryShown: (Story) -> Void
-    @ObservationIgnored private var timer: AnyCancellable?
+    private let onStoryShown: (Story) -> Void
+    private var timer: AnyCancellable?
 
     init(stories: [Story], initialStory: Story, onStoryShown: @escaping (Story) -> Void) {
         self.stories = stories

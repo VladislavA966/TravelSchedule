@@ -2,12 +2,12 @@ import SwiftUI
 
 struct FiltersView: View {
     @Binding var filter: TripFilter
-    @State private var draft: TripFilter
+    @StateObject private var viewModel: FiltersViewModel
     @Environment(Router<ScheduleRoute>.self) private var router
 
     init(filter: Binding<TripFilter>) {
         _filter = filter
-        _draft = State(initialValue: filter.wrappedValue)
+        _viewModel = StateObject(wrappedValue: FiltersViewModel(filter: filter.wrappedValue))
     }
 
     var body: some View {
@@ -28,11 +28,11 @@ struct FiltersView: View {
                     .foregroundStyle(.ypBlack)
 
                 VStack(spacing: 0) {
-                    RadioRow(title: .filtersYes, isSelected: draft.showTransfers == true) {
-                        draft.showTransfers = true
+                    RadioRow(title: .filtersYes, isSelected: viewModel.draft.showTransfers == true) {
+                        viewModel.setShowTransfers(true)
                     }
-                    RadioRow(title: .filtersNo, isSelected: draft.showTransfers == false) {
-                        draft.showTransfers = false
+                    RadioRow(title: .filtersNo, isSelected: viewModel.draft.showTransfers == false) {
+                        viewModel.setShowTransfers(false)
                     }
                 }
             }
@@ -41,9 +41,9 @@ struct FiltersView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .safeAreaInset(edge: .bottom) {
-            if draft != filter {
+            if viewModel.canApply {
                 PrimaryButton(title: .filtersApply) {
-                    filter = draft
+                    filter = viewModel.draft
                     router.pop()
                 }
                 .padding(.horizontal, .s16)
@@ -56,14 +56,8 @@ struct FiltersView: View {
 
     private func binding(for time: DepartureTime) -> Binding<Bool> {
         Binding(
-            get: { draft.departureTimes.contains(time) },
-            set: { isOn in
-                if isOn {
-                    draft.departureTimes.insert(time)
-                } else {
-                    draft.departureTimes.remove(time)
-                }
-            }
+            get: { viewModel.isSelected(time) },
+            set: { viewModel.setSelected($0, for: time) }
         )
     }
 }

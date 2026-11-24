@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var viewModel = MainViewModel()
-    @State private var storiesViewModel = StoriesViewModel()
+    @StateObject private var viewModel = MainViewModel()
+    @StateObject private var storiesViewModel = StoriesViewModel()
     @State private var selectedStory: Story?
     @Environment(Router<ScheduleRoute>.self) private var router
 

@@ -3,11 +3,10 @@ import OpenAPIURLSession
 
 enum APIConfig {
     static let apiKey = Bundle.main.object(forInfoDictionaryKey: "YandexAPIKey") as? String ?? ""
+    static let serverURL = URL(string: "https://api.rasp.yandex.net")!
 
-    static func makeClient() throws -> Client {
-        Client(
-            serverURL: try Servers.Server1.url(),
-            transport: URLSessionTransport()
-        )
+    static func makeScheduleClient() -> YandexScheduleClient {
+        let client = Client(serverURL: serverURL, transport: URLSessionTransport())
+        return YandexScheduleClient(client: client, apikey: apiKey)
     }
 }

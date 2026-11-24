@@ -38,22 +38,21 @@ enum MockData {
     static let rzd = Carrier(
         id: "112",
         title: "РЖД",
-        logo: "RZDLogo",
-        largeLogo: "RZDLogoLarge",
+        logoURL: nil,
         email: "info@rzd.ru",
         phone: "+7 (800) 775-00-00"
     )
     static let fgk = Carrier(
         id: "113",
         title: "ФГК",
-        logo: "FGKLogo",
+        logoURL: nil,
         email: "info@fgk.ru",
         phone: "+7 (800) 775-00-00"
     )
     static let uralLogistics = Carrier(
         id: "114",
         title: "Урал логистика",
-        logo: "UralLogisticsLogo",
+        logoURL: nil,
         email: "info@ural-logistics.ru",
         phone: "+7 (343) 000-00-00"
     )

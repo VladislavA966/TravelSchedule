@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct StoriesPlayerView: View {
-    @State private var viewModel: StoriesPlayerViewModel
+    @StateObject private var viewModel: StoriesPlayerViewModel
     @State private var dragOffset: CGFloat = 0
     @Environment(\.dismiss) private var dismiss
 
-    init(viewModel: StoriesPlayerViewModel) {
-        _viewModel = State(initialValue: viewModel)
+    init(viewModel: @autoclosure @escaping () -> StoriesPlayerViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel())
     }
 
     var body: some View {

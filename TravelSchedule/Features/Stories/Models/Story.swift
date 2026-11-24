@@ -1,6 +1,6 @@
 import Foundation
 
-struct Story: Identifiable, Hashable {
+struct Story: Identifiable, Hashable, Sendable {
     let id: Int
     let preview: String
     let pages: [StoryPage]
@@ -10,7 +10,7 @@ struct Story: Identifiable, Hashable {
     }
 }
 
-struct StoryPage: Identifiable, Hashable {
+struct StoryPage: Identifiable, Hashable, Sendable {
     let id: Int
     let image: String
     let title: String

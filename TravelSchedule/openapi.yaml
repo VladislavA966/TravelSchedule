@@ -529,8 +529,24 @@ components:
           type: string
         has_transfers:
           type: boolean
+        transfers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Station'
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentDetail'
         tickets_info:
           $ref: '#/components/schemas/TicketsInfo'
+
+    SegmentDetail:
+      type: object
+      properties:
+        thread:
+          $ref: '#/components/schemas/Thread'
+        is_transfer:
+          type: boolean
 
     SearchInfo:
       type: object

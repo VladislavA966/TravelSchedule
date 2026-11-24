@@ -1,15 +1,16 @@
+import Combine
 import Foundation
 
-@Observable
-final class CityListViewModel {
-    var searchText = ""
-    private(set) var isLoading = false
-    private(set) var error: AppError?
-    private var cities: [City] = []
+@MainActor
+final class CityListViewModel: ObservableObject {
+    @Published var searchText = ""
+    @Published private(set) var isLoading = false
+    @Published private(set) var error: AppError?
+    @Published private var cities: [City] = []
 
     private let repository: CitiesRepositoryProtocol
 
-    init(repository: CitiesRepositoryProtocol = MockCitiesRepository()) {
+    init(repository: CitiesRepositoryProtocol = AppDependencies.citiesRepository) {
         self.repository = repository
     }
 

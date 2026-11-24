@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CityListView: View {
     let onSelect: (City) -> Void
-    @State private var viewModel = CityListViewModel()
+    @StateObject private var viewModel = CityListViewModel()
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
